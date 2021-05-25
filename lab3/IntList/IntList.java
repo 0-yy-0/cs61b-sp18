@@ -109,7 +109,20 @@ public class IntList {
         ptrRes.rest = B;
         return res.rest;
     }
-
+    public static IntList reverse(IntList L) {
+        if (L == null) {
+            return null;
+        }
+        IntList pre = L, p = L.rest;
+        pre.rest = null;
+        while (p != null) {
+            IntList q = p.rest;
+            p.rest = pre;
+            pre = p;
+            p = q;
+        }
+        return pre;
+    }
 
 
 
